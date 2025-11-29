@@ -1,0 +1,72 @@
+<div class="card flex flex-col gap-6 shadow-2 border-round p-6 max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold text-center mb-6">Inward Form</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+    <!-- Type -->
+    <div class="field w-full">
+      <label for="type" class="font-medium mb-1 block">Select Type</label>
+      <p-select
+        id="type"
+        [options]="inwardTypes"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Inward Type"
+        formControlName="type"
+        class="w-full">
+      </p-select>
+    </div>
+
+    <!-- Date -->
+    <div class="field w-full">
+      <label for="date" class="font-medium mb-1 block">Date</label>
+      <p-datepicker
+        id="date"
+        formControlName="date"
+        placeholder="Select Date"
+        dateFormat="dd/MM/yy"
+        class="w-full">
+      </p-datepicker>
+    </div>
+
+    <!-- Name -->
+    <div class="field w-full">
+      <label for="name" class="font-medium mb-1 block">Name</label>
+      <input pInputText id="name" formControlName="name" placeholder="Enter Name" class="w-full p-3 border-round shadow-sm" />
+    </div>
+
+    <!-- Quantity -->
+    <div class="field w-full">
+      <label for="quantity" class="font-medium mb-1 block">Quantity</label>
+      <input pInputText type="number" id="quantity" formControlName="quantity" placeholder="Enter Quantity" class="w-full p-3 border-round shadow-sm" />
+    </div>
+
+    <!-- Bill -->
+    @if (!hideFields) {
+      <div class="field w-full">
+        <label for="bill" class="font-medium mb-1 block">Bill</label>
+        <input pInputText id="bill" formControlName="bill" placeholder="Bill Number" class="w-full p-3 border-round shadow-sm" />
+      </div>
+    }
+
+    <!-- Invoice No -->
+    @if (!hideFields) {
+      <div class="field w-full">
+        <label for="invoice_no" class="font-medium mb-1 block">Invoice Number</label>
+        <input pInputText id="invoice_no" formControlName="invoice_no" placeholder="Invoice Number" class="w-full p-3 border-round shadow-sm" />
+      </div>
+    }
+
+    <!-- Submit Button -->
+    <div class="col-span-1 sm:col-span-2 mt-4">
+      <button
+        pButton
+        type="submit"
+        label="Submit"
+        class="w-full p-3 text-white bg-blue-600 hover:bg-blue-700 border-none border-round shadow-lg"
+        [disabled]="form.invalid">
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -12,6 +12,9 @@ export const appRoutes: Routes = [
         children: [
             { path: '', component: Dashboard },
             { path: 'uikit', loadChildren: () => import('./app/pages/uikit/uikit.routes') },
+            { path: 'form', loadChildren: () => import('./app/pages/forms/forms.routes') },
+            { path: 'bills', loadChildren: () => import('./app/pages/records/records.routes') },
+            { path: 'stocks', loadChildren: () => import('./app/pages/stocks/stocks.routes') },
             { path: 'documentation', component: Documentation },
             { path: 'pages', loadChildren: () => import('./app/pages/pages.routes') }
         ]

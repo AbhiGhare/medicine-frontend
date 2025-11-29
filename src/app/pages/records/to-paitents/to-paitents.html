@@ -1,0 +1,28 @@
+<!-- outward.component.html -->
+<div class="card shadow-2 border-round p-4 max-w-5xl mx-auto mt-6">
+  <h2 class="text-2xl font-bold text-center mb-4">To paitents bill table</h2>
+
+  <p-table [value]="data" [paginator]="true" [rows]="5" class="w-full">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Date</th>
+        <th>Name (paitent)</th>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Bill</th>
+        <th>Invoice No</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{rowData.date}}</td>
+        <td>{{rowData.name}}</td>
+        <td>{{rowData.item}}</td>
+        <td>{{rowData.quantity}}</td>
+        <td>{{rowData.bill}}</td>
+        <td>{{rowData.invoice_no}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

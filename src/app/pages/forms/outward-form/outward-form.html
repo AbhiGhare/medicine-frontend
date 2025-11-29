@@ -1,0 +1,93 @@
+<div class="card flex flex-col gap-6 shadow-2 border-round p-6 max-w-4xl mx-auto">
+  <h2 class="text-2xl font-bold text-center mb-6">Outward Form</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+    <!-- Outward Type -->
+    <div class="field w-full">
+      <label for="outwardType" class="font-medium mb-1 block">Select Outward Type</label>
+      <p-select
+        id="outwardType"
+        [options]="outwardTypes"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Type"
+        formControlName="type"
+        class="w-full"
+        (onChange)="onTypeChange($event.value)">
+      </p-select>
+    </div>
+
+    <!-- Date -->
+    <div class="field w-full">
+      <label for="date" class="font-medium mb-1 block">Date</label>
+      <p-datepicker
+        id="date"
+        formControlName="date"
+        placeholder="Select Date"
+        dateFormat="dd/MM/yy"
+        class="w-full">
+      </p-datepicker>
+    </div>
+
+    <!-- To Patients Fields -->
+    @if (selectedType === 'patients') {
+      <!-- Patient Name -->
+      <div class="field w-full">
+        <label for="patientName" class="font-medium mb-1 block">Patient Name</label>
+        <input pInputText id="patientName" formControlName="name" placeholder="Enter Patient Name" class="w-full p-3 border-round shadow-sm" />
+      </div>
+
+      <!-- Item Name -->
+      <div class="field w-full">
+        <label for="itemName" class="font-medium mb-1 block">Item Name</label>
+        <input pInputText id="itemName" formControlName="itemName" placeholder="Enter Item Name" class="w-full p-3 border-round shadow-sm" />
+      </div>
+
+      <!-- Quantity -->
+      <div class="field w-full">
+        <label for="quantity" class="font-medium mb-1 block">Quantity</label>
+        <input pInputText type="number" id="quantity" formControlName="quantity" placeholder="Enter Quantity" class="w-full p-3 border-round shadow-sm" />
+      </div>
+
+      <!-- Bill -->
+      <div class="field w-full">
+        <label for="bill" class="font-medium mb-1 block">Bill</label>
+        <input pInputText id="bill" formControlName="bill" placeholder="Bill Number" class="w-full p-3 border-round shadow-sm" />
+      </div>
+
+      <!-- Invoice No -->
+      <div class="field w-full">
+        <label for="invoiceNo" class="font-medium mb-1 block">Invoice Number</label>
+        <input pInputText id="invoiceNo" formControlName="invoiceNo" placeholder="Invoice Number" class="w-full p-3 border-round shadow-sm" />
+      </div>
+    }
+
+    <!-- For Tableting Fields -->
+    @if (selectedType === 'tableting') {
+      <!-- Material Name -->
+      <div class="field w-full">
+        <label for="materialName" class="font-medium mb-1 block">Material Name</label>
+        <input pInputText id="materialName" formControlName="materialName" placeholder="Enter Material Name" class="w-full p-3 border-round shadow-sm" />
+      </div>
+
+      <!-- Quantity -->
+      <div class="field w-full">
+        <label for="quantityTableting" class="font-medium mb-1 block">Quantity</label>
+        <input pInputText type="number" id="quantityTableting" formControlName="quantity" placeholder="Enter Quantity" class="w-full p-3 border-round shadow-sm" />
+      </div>
+    }
+
+    <!-- Submit Button -->
+    <div class="col-span-1 sm:col-span-2 mt-4">
+      <button
+        pButton
+        type="submit"
+        label="Submit"
+        class="w-full p-3 text-white bg-blue-600 hover:bg-blue-700 border-none border-round shadow-lg"
+        [disabled]="form.invalid">
+      </button>
+    </div>
+
+  </form>
+</div>
