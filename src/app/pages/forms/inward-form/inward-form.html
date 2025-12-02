@@ -52,21 +52,38 @@
     <!-- Invoice No -->
     @if (!hideFields) {
       <div class="field w-full">
-        <label for="invoice_no" class="font-medium mb-1 block">Invoice Number</label>
-        <input pInputText id="invoice_no" formControlName="invoice_no" placeholder="Invoice Number" class="w-full p-3 border-round shadow-sm" />
+        <label for="invoice" class="font-medium mb-1 block">Invoice Number</label>
+        <input pInputText id="invoice" formControlName="invoice" placeholder="Invoice Number" class="w-full p-3 border-round shadow-sm" />
       </div>
     }
 
     <!-- Submit Button -->
     <div class="col-span-1 sm:col-span-2 mt-4">
-      <button
+      <!-- <button
         pButton
         type="submit"
         label="Submit"
         class="w-full p-3 text-white bg-blue-600 hover:bg-blue-700 border-none border-round shadow-lg"
         [disabled]="form.invalid">
-      </button>
+      </button> -->
+      <button
+  pButton
+  type="submit"
+  class="w-full p-3 text-white bg-blue-600 hover:bg-blue-700 border-none border-round shadow-lg flex items-center justify-center gap-2"
+  [disabled]="form.invalid || loading">
+
+  @if (!loading) {
+    Submit
+  }
+
+  @if (loading) {
+    <i class="pi pi-spin pi-spinner text-white text-xl"></i>
+  }
+
+</button>
+
     </div>
 
   </form>
 </div>
+<p-toast />

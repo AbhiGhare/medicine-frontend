@@ -10,9 +10,9 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-row>
+    <ng-template pTemplate="body" let-row let-rowIndex="rowIndex">
       <tr>
-        <td>{{ row.srno }}</td>
+        <td>{{ rowIndex+1 }}</td>
         <td>{{ row.name }}</td>
         <td>{{ row.quantity }}</td>
       </tr>

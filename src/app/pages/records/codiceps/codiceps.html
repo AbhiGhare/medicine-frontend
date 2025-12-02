@@ -16,10 +16,10 @@
     <ng-template pTemplate="body" let-rowData>
       <tr>
         <td>{{rowData.date}}</td>
-        <td>{{rowData.name}}</td>
+        <td>{{rowData.itemId.name}}</td>
         <td>{{rowData.quantity}}</td>
         <td>{{rowData.bill}}</td>
-        <td>{{rowData.invoice_no}}</td>
+        <td>{{rowData.invoice}}</td>
       </tr>
     </ng-template>
   </p-table>
